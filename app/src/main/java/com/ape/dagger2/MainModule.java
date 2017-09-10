@@ -7,6 +7,8 @@ import com.google.gson.GsonBuilder;
 
 import java.lang.reflect.Modifier;
 
+import javax.inject.Named;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -15,15 +17,29 @@ import dagger.Provides;
  */
 @Module //实现一个类，标注为 Module
 public class MainModule {
-    private Context mContext;
+    private Context mApplicationContext;
+    private Context mActivityContext;
 
-    public MainModule(Context context) {
-        mContext = context;
+    public MainModule(Context context, Context activityContext) {
+        mApplicationContext = context;
+        mActivityContext = activityContext;
     }
 
     @Provides //实现一些提供方法，供外部使用
-    public Tinno provideTinno(Gson gson, CameraTeam cameraTeam) {
-        return new Tinno(mContext, gson, cameraTeam);
+    public Tinno provideTinno(@Named("application")Context context, Gson gson, CameraTeam cameraTeam) {
+        return new Tinno(context, gson, cameraTeam);
+    }
+
+    @Named("application")
+    @Provides
+    public Context provideApplicationContext() {
+        return mApplicationContext;
+    }
+
+    @Named("activity")
+    @Provides
+    public Context provideActivityContext() {
+        return mActivityContext;
     }
 
     @Provides

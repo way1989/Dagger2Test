@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         TextView dagger2TextView = (TextView) findViewById(R.id.dagger2_text_view);
         //使用组件进行构造，注入
-        DaggerMainActivityComponent.builder().mainModule(new MainModule(getApplicationContext())).build().inject(this);
+        DaggerMainActivityComponent.builder().mainModule(new MainModule(getApplicationContext(), this)).build().inject(this);
         Log.d(TAG, "onCreate: mTinno = " + mTinno);
 
         dagger2TextView.setText(mTinno.toString());
