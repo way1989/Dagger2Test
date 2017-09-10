@@ -31,4 +31,7 @@ dependencies {
     //依赖 dagger2
     compile 'com.google.dagger:dagger:2.4'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.4'
+
+    //gson
+    compile 'com.google.code.gson:gson:2.7'
 }
