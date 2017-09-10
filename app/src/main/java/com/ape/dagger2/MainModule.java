@@ -26,17 +26,17 @@ public class MainModule {
     }
 
     @Provides //实现一些提供方法，供外部使用
-    public Tinno provideTinno(@Named("application")Context context, Gson gson, CameraTeam cameraTeam) {
+    public Tinno provideTinno(@ApplicationQualifier Context context, Gson gson, CameraTeam cameraTeam) {
         return new Tinno(context, gson, cameraTeam);
     }
 
-    @Named("application")
+    @ApplicationQualifier
     @Provides
     public Context provideApplicationContext() {
         return mApplicationContext;
     }
 
-    @Named("activity")
+    @ActivityQualifier
     @Provides
     public Context provideActivityContext() {
         return mActivityContext;
