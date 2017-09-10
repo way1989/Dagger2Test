@@ -1,7 +1,7 @@
 package com.ape.dagger2;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     @Inject
     Tinno mTinno;//加入注解，标注这个Tinno是需要注入的
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
