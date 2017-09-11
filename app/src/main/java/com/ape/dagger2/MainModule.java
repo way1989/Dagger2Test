@@ -1,5 +1,7 @@
 package com.ape.dagger2;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -9,6 +11,7 @@ import dagger.Provides;
 @Module //实现一个类，标注为 Module
 public class MainModule {
 
+    //@Singleton
     @Provides //实现一些提供方法，供外部使用
     public Tinno provideTinno(){
         return new Tinno();
